@@ -1,21 +1,22 @@
 package clases;
 
-import java.sql.Date;
+
+import java.util.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import interfaz.IProyecto;
 
 public class Persona implements IProyecto {
-	protected String run, nombre;
-	protected Date fechaNacimiento;
-	private Calendar calendario;
-	private SimpleDateFormat formato;
+	private String run, nombre;
+	private Date fechaNacimiento;
+	protected Calendar calendario;
+	protected SimpleDateFormat formato;
 	
 	public Persona() {
 		
-		formato = new SimpleDateFormat("dd/mm/yyyy");
+		formato = new SimpleDateFormat("dd/MM/yyyy");
 		calendario = Calendar.getInstance();
+		
 		setRun();
 		setNombre();
 		setFechaNacimiento();
@@ -46,13 +47,14 @@ public class Persona implements IProyecto {
 
 	public void setFechaNacimiento() {
 		try {
-			System.out.println(" Ingrese la fecha de Nacimiento ::: FORMATO - 01/01/2024)");
-			fechaNacimiento = (Date) formato.parse(leer.nextLine());
-			calendario.setTime(fechaNacimiento);
-		}catch(ParseException e) {
-			System.err.println("error: " + e.getMessage()+ " por favor use el formato 01/01/2024");
-			
-		}
+            System.out.println("Ingrese la fecha de Nacimiento(FORMATO - 01/01/2024):");
+            String fechaStr = leer.nextLine();
+            fechaNacimiento = formato.parse(fechaStr);
+            calendario.setTime(fechaNacimiento);
+        } catch (ParseException e) {
+            System.err.println("Error: " + e.getMessage() + ". Por favor, use el formato 01/01/2024");
+        }
+		
 	}
 	
 }

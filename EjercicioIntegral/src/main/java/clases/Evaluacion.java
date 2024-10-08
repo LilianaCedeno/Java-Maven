@@ -1,4 +1,5 @@
 package clases;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Evaluacion {
@@ -9,8 +10,6 @@ public class Evaluacion {
 	public Evaluacion() {
 		leer = new Scanner(System.in);
 		setNota();
-		
-		
 	}
 
 	public Double getNota() {
@@ -18,29 +17,38 @@ public class Evaluacion {
 	}
 
 	public void setNota() {
-	
-		System.out.println("Ingrese la nota");
-		Double auxN = leer.nextDouble();
 		
-		if (validarNota(auxN)){
-			nota = auxN;
-			} else {
-				System.out.println("Nota en formato incorrecto");
-				setNota();
-			}
-		}
+		  while (true) { // Usamos un bucle para seguir pidiendo la nota
+	            System.out.print("Ingrese la nota (0,1 al 7,0): ");
+	            try {
+	                Double auxN = leer.nextDouble(); // Intentar leer la nota
 
-	public Boolean validarNota(Double n) {
-		Boolean valido = false;
-		
-		if (nota >=0.1 && nota<= 7) {
-			valido = true;
-
-		}else{
-			System.out.println("Las notas deben ser del 0.1 al 7.0");
-		}
-		return valido;
+	                if (validarNota(auxN)) {
+	                    nota = auxN; // Asigna la nota si es válida
+	                    break; // aca para salir  del bucle
+	                } else {
+	                    System.out.println("Nota en formato incorrecto. Debe estar entre 0,1 y 7,0. Inténtelo nuevamente.");
+	                }
+	            } catch (InputMismatchException e) {
+	                System.out.println("Entrada no válida. Por favor, ingrese un número decimal.");
+	                leer.next(); 
+	            }
+	        }
 		
 	}
+
+	public Boolean validarNota(Double n) {
+			
+		if (n >=0.1 && n<= 7) {
+			return true;
+
+		}else{
+			System.out.println("Las notas deben ser del 0,1 al 7,0");
+			return false;
+		}
+		
+	}
+	
+	
 	
 }
