@@ -8,6 +8,7 @@ import clases.Relator;
 public class Principal {
 
 	public static void main(String[] args) {
+		
 		Scanner leer = new Scanner(System.in);
 		ArrayList<CursoIntensivo> cursos = new ArrayList<CursoIntensivo>();
         int option;
@@ -101,20 +102,23 @@ public class Principal {
                     break;
                     
                     
-                case 6:/*
-                    System.out.println("\u001B[32m" + "Exportando datos a un fichero..." + "\u001B[0m");
-                    System.out.println("\u001B[32m"+"------------------------"+"\u001B[0m");
+                case 6:
+                    System.out.println("\u001B[32m"+"Exportando datos a un fichero..." + "\u001B[0m");
+                    System.out.println("\u001B[32m"+"---------------------------------"+"\u001B[0m");
                     
                     System.out.print("Ingrese el nombre del fichero (sin extensión): ");
-                    String nombreFichero = leer.nextLine();
+                   // String nombreFichero = leer.nextLine();
                     System.out.print("Seleccione el formato (1: Excel, 2: PDF): ");
                    
                     int formato = leer.nextInt();
                     if (formato == 1) {
-                        cursos.forEach(curso -> curso.exportarDatos(nombreFichero));
+                    	
+                       // cursos.exportarDatosExcel(nombreFichero());
+                        
                     } else if (formato == 2) {
-                        pdf)
-                    }*/
+                    	//cursos.exportarDatosPdf(nombreFichero());
+                        
+                    }
                 	break;
                 	                    
                     

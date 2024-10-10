@@ -1,5 +1,17 @@
 package clases;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.security.Principal;
 import java.util.*;
+/*
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;*/
+
 import interfaz.IProyecto;
 
 public class CursoIntensivo implements IProyecto{
@@ -166,22 +178,5 @@ public class CursoIntensivo implements IProyecto{
             System.out.println("El curso con código " + codigoCurso + " no se encontró.");
         }
     }
+}
     
-    
-    
-}    
-    
-    
-    /*
-       public void mostrarSF(){
-    	System.out.println("Alumno:");
-    	System.out.println("--------:");
-        for (Persona auxR : listaCurso) {
-            Alumno alumno = (Alumno) auxR; 
-            String situacion = alumno.calcularSituacionFinal(asistenciaMinima);
-            System.out.println(alumno.getNombre() + " Situación Final: " + situacion);
-        }
-    }
-
-	
-}*/
